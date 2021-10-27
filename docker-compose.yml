@@ -1,17 +1,20 @@
 version: '3'
 services: 
     db:
-        image: mysql:8
         environment:
             - MYSQL_ROOT_PASSWORD=password
             - MYSQL_DATABASE=foo
-              #    build:
-              #context: ./mysql/
-              #dockerfile: Dockerfile
-    # api:
-    #     build:
-    #         context: api/
-    #         dockerfile: Dockerfile
+        build:
+            context: ./mysql/
+            dockerfile: Dockerfile
+        ports:
+            - 3306:3306
+    api:
+        build:
+            context: api/
+            dockerfile: Dockerfile
+        ports:
+            - 3002:3002
     # mysql:
     #     environment:
     #         - MYSQL_ROOT_PASSWORD=password

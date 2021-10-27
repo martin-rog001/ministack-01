@@ -3,7 +3,7 @@ const mysql = require('mysql2')
 const router = express.Router();
 
 const mysqlConf={
-    host: 'localhost',
+    host: 'db',
     user: 'root',
     password: 'password',
     database: 'foo'
