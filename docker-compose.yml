@@ -2,8 +2,8 @@ version: '3'
 services: 
     db:
         environment:
-            - MYSQL_ROOT_PASSWORD=password
-            - MYSQL_DATABASE=foo
+            - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+            - MYSQL_DATABASE=${MYSQL_DATABASE}
         build:
             context: ./mysql/
             dockerfile: Dockerfile
@@ -13,6 +13,11 @@ services:
         build:
             context: api/
             dockerfile: Dockerfile
+        environment:
+            - MS01_DB_HOST=${MS01_DB_HOST}
+            - MS01_DB_USER=${MS01_DB_USER}
+            - MS01_DB_PASS=${MS01_DB_PASS}
+            - MS01_DB_NAME=${MS01_DB_NAME}
         ports:
             - 3002:3002
     # mysql:

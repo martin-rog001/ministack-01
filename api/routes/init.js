@@ -3,11 +3,14 @@ const mysql = require('mysql2')
 const router = express.Router();
 
 const mysqlConf={
-    host: 'db',
-    user: 'root',
-    password: 'password',
-    database: 'foo'
+    host: process.env.MS01_DB_HOST,
+    user: process.env.MS01_DB_USER,
+    password: process.env.MS01_DB_PASS,
+    database: process.env.MS01_DB_NAME
 }
+
+console.log('MySql Conf', mysqlConf);
+console.log(process.env);
 
 // mysql.createConnection(mysqlConf);
 
